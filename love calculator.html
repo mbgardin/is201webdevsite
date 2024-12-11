@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        input, button { margin: 10px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Love Calculator</h1>
+    <p>Find out the compatibility between two names!</p>
+    <input type="text" id="name1" placeholder="Enter First Name">
+    <input type="text" id="name2" placeholder="Enter Second Name">
+    <button onclick="calculateLove()">Calculate</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateLove() {
+            const name1 = document.getElementById('name1').value.trim().toLowerCase();
+            const name2 = document.getElementById('name2').value.trim().toLowerCase();
+            
+            if ((name1 === "monte" && name2 === "ella") || (name1 === "ella" && name2 === "monte")) {
+                document.getElementById('result').innerText = "Monte and Ella are 100% compatible!";
+            } else if (name1 && name2) {
+                const compatibility = Math.floor(Math.random() * 100) + 1;
+                document.getElementById('result').innerText = `${capitalize(name1)} and ${capitalize(name2)} are ${compatibility}% compatible!`;
+            } else {
+                document.getElementById('result').innerText = 'Please enter both names!';
+            }
+        }
+
+        function capitalize(name) {
+            return name.charAt(0).toUpperCase() + name.slice(1);
+        }
+    </script>
+</body>
+</html>
